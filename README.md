@@ -1,7 +1,4 @@
 - 👋 Hi, I’m @Raf0307
-- 👀 I’m interested in Micro Controllers
-- 🌱 I’m currently learning Rasberry pi family
-- 💞️ I’m looking to collaborate on whatever really
 - 📫 How to reach me raf.flores.r@gmail.com
 
 <!---
