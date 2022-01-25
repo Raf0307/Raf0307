@@ -1,0 +1,29 @@
+filename = '/content/drive/MyDrive/302/lego_setsHB.csv'
+
+#filename = '/content/drive/MyDrive/DATA/titanic.csv'
+price = {}
+difficulty = {}
+i=0;
+id = ""
+price = 0
+diff = ""
+with open(filename, 'r') as fl:
+    next(fl) #will help you skip the first line in which we have the header
+
+
+    for line in fl:
+      if i > 1000:
+        break
+      id = line.split(",")[4]
+      price = line.split(",")[0]
+      diff = line.split(",")[5]
+
+      price = dict({id: price})
+      difficulty = dict({id: diff})
+      i+=1
+
+      
+      
+
+for key, value in price.items():
+    print(key, value, difficulty[key])
