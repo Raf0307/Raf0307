@@ -1,0 +1,18 @@
+#1
+import pandas as pd
+df = pd.read_csv('drive/MyDrive/302/titanic.csv')
+#2
+df.describe()
+#3
+df2 = df.notna()
+
+df2.head()
+#4
+younger = df.loc[(df['Age']<30) & (df['Survived'] == 1), ['Age','Survived']]
+younger.head()
+#5
+Older = df.loc[(df['Age']>=30) & (df['Survived'] == 1), ['Age','Survived']]
+Older.head()
+#6
+younger.count()
+Older.count()
