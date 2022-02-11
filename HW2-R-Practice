@@ -13,7 +13,41 @@ df1 %>% group_by(State) %>% summarise(sum_sales = sum(Sales))
 
 library(readr)
 WorldCupMatches <- read_csv("rData/WorldCupMatches.csv")
+View(WorldCupMatches)
 
 #outputs the number of rows and columns in the data frame
 nrow(WorldCupMatches)
 ncol(WorldCupMatches)
+
+#Outputs a summary of the data in WorldCupMatches
+summary(WorldCupMatches)
+
+#Outputs the number of unique locations that games were played at
+n_distinct(WorldCupMatches$City)
+
+#Outputs the average attendance
+mean(WorldCupMatches$Attendance)
+
+#Outputs the number of goals for each home team
+WorldCupMatches %>% group_by(`Home Team Name`) %>% summarise(num_goals = sum(`Home Team Goals`))
+
+#outputs the average number of attendees in each year 	Alzheimer
+WorldCupMatches %>% group_by(`Year`) %>% summarise(avgAttend = mean(Attendance))
+
+
+Metabolite <- read_csv("rData/metabolite.csv")
+View(Metabolite)
+
+#counts the number of patients with Alzheimer
+sum(Metabolite$Label == "Alzheimer")
+
+#counts the number of NA values in every column
+sum(is.na(Metabolite) == TRUE)
+
+
+
+is.na(Metabolite$Dopamine) == FALSE
+
+View(frmDope)
+head(frmDope)
+
