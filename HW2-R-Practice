@@ -1,0 +1,19 @@
+#Creates the Data Frame df1 and loads the columns Name, State, and Sales. Also loads the appropriate data for each column
+df1=data.frame(Name=c('James','Paul','Richards','Marico','Samantha','Ravi','Raghu',
+                      'Richards','George','Ema','Samantha','Catherine'),
+               State=c('Alaska','California','Texas','North Carolina','California','Texas',
+                       'Alaska','Texas','North Carolina','Alaska','California','Texas'),
+               Sales=c(14,24,31,12,13,7,9,31,18,16,18,14))
+#Assigns the values of Sale to each State according to their position in the list. 
+aggregate(df1$Sales, by=list(df1$State), FUN=sum)
+#loads the library dplyr
+library(dplyr)
+#Does the same as line 8
+df1 %>% group_by(State) %>% summarise(sum_sales = sum(Sales))
+
+library(readr)
+WorldCupMatches <- read_csv("rData/WorldCupMatches.csv")
+
+#outputs the number of rows and columns in the data frame
+nrow(WorldCupMatches)
+ncol(WorldCupMatches)
