@@ -1,3 +1,5 @@
+### ------------Question 1---------------
+
 #Creates the Data Frame df1 and loads the columns Name, State, and Sales. Also loads the appropriate data for each column
 df1=data.frame(Name=c('James','Paul','Richards','Marico','Samantha','Ravi','Raghu',
                       'Richards','George','Ema','Samantha','Catherine'),
@@ -11,8 +13,12 @@ library(dplyr)
 #Does the same as line 8
 df1 %>% group_by(State) %>% summarise(sum_sales = sum(Sales))
 
+
+### ------------Question 2---------------
+
+
 library(readr)
-WorldCupMatches <- read_csv("rData/WorldCupMatches.csv")
+WorldCupMatches <- read_csv("Rdata/WorldCupMatches.csv")
 View(WorldCupMatches)
 
 #outputs the number of rows and columns in the data frame
@@ -26,16 +32,20 @@ summary(WorldCupMatches)
 n_distinct(WorldCupMatches$City)
 
 #Outputs the average attendance
-mean(WorldCupMatches$Attendance)
+mean(WorldCupMatches$Attendance,na.rm = TRUE)
 
 #Outputs the number of goals for each home team
 WorldCupMatches %>% group_by(`Home Team Name`) %>% summarise(num_goals = sum(`Home Team Goals`))
+head(WorldCupMatches)
 
 #outputs the average number of attendees in each year 	Alzheimer
 WorldCupMatches %>% group_by(`Year`) %>% summarise(avgAttend = mean(Attendance))
+head(WorldCupMatches)
+
+### ------------Question 3---------------
 
 
-Metabolite <- read_csv("rData/metabolite.csv")
+Metabolite <- read_csv("Rdata/metabolite.csv")
 View(Metabolite)
 
 #counts the number of patients with Alzheimer
@@ -44,10 +54,14 @@ sum(Metabolite$Label == "Alzheimer")
 #counts the number of NA values in every column
 sum(is.na(Metabolite) == TRUE)
 
-
-
-is.na(Metabolite$Dopamine) == FALSE
-
-View(frmDope)
-head(frmDope)
-
+#creates the new frame and assigns it the rows that have dopamine as na
+frmNew <- Metabolite[is.na(Metabolite$Dopamine)==TRUE, ]
+head(frmNew)
+#Removes the rows with na in column Dopamine
+Metabolite <- Metabolite[is.na(Metabolite$Dopamine)==FALSE, ]
+head(Metabolite)
+#Finds the median value of c4-OH-Pro 
+median(frmNew$`c4-OH-Pro`,na.rm = TRUE)
+#Assigns the median value of c4-OH-Pro to the na locations in c4-OH-Pro
+frmNew$`c4-OH-Pro`[is.na(frmNew$`c4-OH-Pro`)] <-.197
+head(frmNew)
