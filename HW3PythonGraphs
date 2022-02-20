@@ -1,0 +1,26 @@
+#-------HW3-------
+
+#-------question 1-------
+dfWorldCup = pd.read_csv('drive/MyDrive/302/WorldCupMatches.csv')
+
+dfWorldCup.head()
+
+#-------question 2-------
+ax = sns.displot(dfWorldCup['Home Team Goals'])
+#-------question 3-------
+labels=[y if y%5==0 else None for y in list(dfWorldCup.Year.unique())]
+
+ax = sns.violinplot(data=dfWorldCup, x='Year', y='Home Team Goals')
+ax.set_xticklabels(labels)
+#-------question 4-------
+fig, axes = jp.joyplot(dfWorldCup, by='Home Team Goals')
+fig, axes = jp.joyplot(dfWorldCup, by='Away Team Goals')
+#-------question 5-------
+dfHTM = dfWorldCup.groupby('Home Team Initials')['Home Team Goals','Away Team Goals'].sum().reset_index()
+dfHTM = dfHTM.sort_values('Home Team Goals',ascending = False)
+
+ax = sns.displot(dfHTM.head(),x = 'Home Team Initials',y = 'Home Team Goals')
+#-------question 6-------
+jp.joyplot(dfHTM.head(4),column=['Home Team Goals', 'Away Team Goals'] ,by='Home Team Initials',hist=True,legend = True)
+#-------question 7-------
+pplot(dfHTM, x='Home Team Goals', y='Away Team Goals',height=4,aspect=2)
