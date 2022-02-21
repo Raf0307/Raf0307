@@ -1,0 +1,16 @@
+install.packages("tidyverse")
+library(readr)
+library(RColorBrewer)
+coul <- brewer.pal(5,"Set2")
+
+#-----Plot 1-----
+dfOffAge <- read_csv("Rdata/Offender-Age2_21_2022.csv")
+View(dfOffAge)
+barplot(dfOffAge$value,names.arg = dfOffAge$key,cex.names=0.6,
+        col=coul,main = "Offender Age",xlab = "Age Range",ylab = "# of Cases")
+
+#-----Plot 2-----
+dfVicAge <- read_csv("Rdata/Victim-Age2_21_2022.csv")
+View(dfVicAge)
+label <- dfVicAge$key
+pie(dfVicAge$value,labels = label)
