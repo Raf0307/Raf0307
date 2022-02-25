@@ -1,0 +1,30 @@
+#----------Rafael Code----------
+library(readr)
+library(RColorBrewer)
+library(ggplot2)
+coul <- brewer.pal(5,"Set2")
+
+dfOffAge <- read_csv("Rdata/Offender-Age2_21_2022.csv")
+barplot(dfOffAge$value,names.arg = dfOffAge$key,cex.names=0.6,
+        col=coul,main = "Offender Age",xlab = "Age Range",ylab = "# of Cases")
+
+#-----Plot 2-----
+dfVicAge <- read_csv("Rdata/Victim-Age2_21_2022.csv")
+
+ggplot(dfVicAge,aes(x="",y=dfVicAge$value,fill=label))+
+  geom_bar(stat = "identity",color = "black")+
+  coord_polar("y",start = 0)+
+  theme_void()
+#----------Jack Code----------
+dfMichigan <- read_csv('/Users/jackvalentine/Desktop/School/2022 - 2nd Semester/CSC 302 - Data Visualization/1Rate-of-Violent-Crime-Offenses-by-Population2_21_2022.csv')
+View(dfMichigan)
+
+ggplot(dfMichigan, aes(x=Year, y=Michigan) ) +
+geom_line(color='blue')
+#----------Skylar Code----------
+ggplot(data=dfweps,aes(x=weps,y=value,size = value))+
+    geom_point(alpha=1)+
+    ylim(0,150000)+
+    theme(axis.text.x=element_text(
+      size=8,angle=90,color="red")
+)
