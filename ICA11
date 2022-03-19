@@ -1,0 +1,67 @@
+library(readr)
+library(dplyr)
+library(ggpubr)
+
+Flights <- read_csv("Rdata/flights.csv")
+flightsJan <- Flights[(Flights$month) == "Jan",]
+flightsFeb <- Flights[(Flights$month) == "Feb",]
+flightsMar <- Flights[(Flights$month) == "Mar",]
+flightsApr <- Flights[(Flights$month) == "Apr",]
+flightsMay <- Flights[(Flights$month) == "May",]
+flightsJun <- Flights[(Flights$month) == "Jun",]
+flightsJul <- Flights[(Flights$month) == "Jul",]
+flightsAug <- Flights[(Flights$month) == "Aug",]
+flightsSep <- Flights[(Flights$month) == "Sep",]
+flightsOct <- Flights[(Flights$month) == "Oct",]
+flightsNov <- Flights[(Flights$month) == "Nov",]
+flightsDec <- Flights[(Flights$month) == "Dec",]
+
+
+JanG <- ggplot(flightsJan,aes(x=passengers,y=year)) +geom_line() +ggtitle("January Passangers")
+FebG <- ggplot(flightsFeb,aes(x=passengers,y=year)) +geom_line() +ggtitle("Febuary Passangers")
+MarG <- ggplot(flightsMar,aes(x=passengers,y=year)) +geom_line() +ggtitle("March Passangers")
+AprG <- ggplot(flightsApr,aes(x=passengers,y=year)) +geom_line() +ggtitle("April Passangers")
+MayG <- ggplot(flightsMay,aes(x=passengers,y=year)) +geom_line() +ggtitle("May Passangers")
+JunG <- ggplot(flightsJun,aes(x=passengers,y=year)) +geom_line() +ggtitle("June Passangers")
+JulG <- ggplot(flightsJul,aes(x=passengers,y=year)) +geom_line() +ggtitle("July Passangers")
+AugG <- ggplot(flightsAug,aes(x=passengers,y=year)) +geom_line() +ggtitle("August Passangers")
+SepG <- ggplot(flightsSep,aes(x=passengers,y=year)) +geom_line() +ggtitle("September Passangers")
+OctG <- ggplot(flightsOct,aes(x=passengers,y=year)) +geom_line() +ggtitle("October Passangers")
+NovG <- ggplot(flightsNov,aes(x=passengers,y=year)) +geom_line() +ggtitle("November Passangers")
+DecG <- ggplot(flightsDec,aes(x=passengers,y=year)) +geom_line() +ggtitle("December Passangers")
+
+
+ggarrange(JanG,FebG,MarG,AprG,MayG,JunG,JulG,AugG,SepG,OctG,NovG,DecG)library(readr)
+library(dplyr)
+library(ggpubr)
+
+Flights <- read_csv("Rdata/flights.csv")
+flightsJan <- Flights[(Flights$month) == "Jan",]
+flightsFeb <- Flights[(Flights$month) == "Feb",]
+flightsMar <- Flights[(Flights$month) == "Mar",]
+flightsApr <- Flights[(Flights$month) == "Apr",]
+flightsMay <- Flights[(Flights$month) == "May",]
+flightsJun <- Flights[(Flights$month) == "Jun",]
+flightsJul <- Flights[(Flights$month) == "Jul",]
+flightsAug <- Flights[(Flights$month) == "Aug",]
+flightsSep <- Flights[(Flights$month) == "Sep",]
+flightsOct <- Flights[(Flights$month) == "Oct",]
+flightsNov <- Flights[(Flights$month) == "Nov",]
+flightsDec <- Flights[(Flights$month) == "Dec",]
+
+
+JanG <- ggplot(flightsJan,aes(x=passengers,y=year)) +geom_line() +ggtitle("January Passangers")
+FebG <- ggplot(flightsFeb,aes(x=passengers,y=year)) +geom_line() +ggtitle("Febuary Passangers")
+MarG <- ggplot(flightsMar,aes(x=passengers,y=year)) +geom_line() +ggtitle("March Passangers")
+AprG <- ggplot(flightsApr,aes(x=passengers,y=year)) +geom_line() +ggtitle("April Passangers")
+MayG <- ggplot(flightsMay,aes(x=passengers,y=year)) +geom_line() +ggtitle("May Passangers")
+JunG <- ggplot(flightsJun,aes(x=passengers,y=year)) +geom_line() +ggtitle("June Passangers")
+JulG <- ggplot(flightsJul,aes(x=passengers,y=year)) +geom_line() +ggtitle("July Passangers")
+AugG <- ggplot(flightsAug,aes(x=passengers,y=year)) +geom_line() +ggtitle("August Passangers")
+SepG <- ggplot(flightsSep,aes(x=passengers,y=year)) +geom_line() +ggtitle("September Passangers")
+OctG <- ggplot(flightsOct,aes(x=passengers,y=year)) +geom_line() +ggtitle("October Passangers")
+NovG <- ggplot(flightsNov,aes(x=passengers,y=year)) +geom_line() +ggtitle("November Passangers")
+DecG <- ggplot(flightsDec,aes(x=passengers,y=year)) +geom_line() +ggtitle("December Passangers")
+
+
+ggarrange(JanG,FebG,MarG,AprG,MayG,JunG,JulG,AugG,SepG,OctG,NovG,DecG)
